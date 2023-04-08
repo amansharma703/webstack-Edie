@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { links } from "../constant";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export const Navbar = () => {
     const [showDropDown, setShowDropDown] = useState(false);
+  const { width } = useWindowSize();
 
     return (
         <>
             <nav
                 className="nav"
                 style={{
-                    height: showDropDown ? "500px" : "",
+                    height: showDropDown && width<768 ? "500px" : "",
                 }}
             >
                 <div className="nav-container">
